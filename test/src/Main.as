@@ -57,6 +57,7 @@ package
 	import away3d.primitives.*;
 	import away3d.textures.*;
 	import away3d.utils.*;
+	import config.Context;
 	
 	import flash.display.*;
 	import flash.events.*;
@@ -160,12 +161,15 @@ package
 		private var strafeAcceleration:Number = 0;
 		private var redMaterial:ColorMaterial;
 		
+		protected var m_context:Context;
+		
 		/**
 		 * Constructor
 		 */
 		public function Main()
 		{
 			init();
+			m_context = new Context();
 		}
 		
 		/**
@@ -456,13 +460,16 @@ package
 		}
 		
 		private function onMeshMouseDown( event:MouseEvent3D ):void {
-			var mesh:Mesh = new Mesh(new SphereGeometry(12), redMaterial);
-			mesh.geometry.scaleUV(50, 50);
-			mesh.x = event.scenePosition.x;
-			mesh.y = event.scenePosition.y;
-			mesh.z = event.scenePosition.z;
-			mesh.mouseEnabled = mesh.mouseChildren = mesh.shaderPickingDetails = true;
-			scene.addChild(mesh);
+			if (m_context.m_config.m_pickAddGimzo)
+			{
+				var mesh:Mesh = new Mesh(new SphereGeometry(12), redMaterial);
+				mesh.geometry.scaleUV(50, 50);
+				mesh.x = event.scenePosition.x;
+				mesh.y = event.scenePosition.y;
+				mesh.z = event.scenePosition.z;
+				mesh.mouseEnabled = mesh.mouseChildren = mesh.shaderPickingDetails = true;
+				scene.addChild(mesh);
+			}
 		}
 	}
 }
