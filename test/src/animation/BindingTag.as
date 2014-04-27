@@ -1,4 +1,4 @@
-package
+package animation
 {
     import away3d.arcane;
     import away3d.animators.SkeletonAnimator;

@@ -1,4 +1,4 @@
-package  
+package animation
 {
 	import away3d.animators.data.Skeleton;
 	import away3d.animators.SkeletonAnimationSet;
