@@ -10,7 +10,7 @@ package config
 
 		public function Config() 
 		{
-			m_pickAddGimzo = false;
+			m_pickAddGimzo = true;
 		}
 	}
 }
